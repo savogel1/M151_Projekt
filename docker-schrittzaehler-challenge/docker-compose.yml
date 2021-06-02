@@ -24,8 +24,8 @@ services:
     expose:
       - 5432
     environment:
-      - POSTGRES_PASSWORD=db-postgres
-      - POSTGRES_USER=db-postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
       - POSTGRES_DB=postgres
     networks:
       - schrittzaehler-challenge-network
@@ -39,7 +39,7 @@ services:
     image: dpage/pgadmin4:5.1
     restart: always
     environment:
-      - PGADMIN_DEFAULT_EMAIL=philip_baumann@sluz.ch
+      - PGADMIN_DEFAULT_EMAIL=sacha_vogel@sluz.ch
       - PGADMIN_DEFAULT_PASSWORD=admin
     ports:
       - 4000:80
