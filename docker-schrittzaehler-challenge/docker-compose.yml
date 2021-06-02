@@ -1,50 +1,69 @@
-version: '3.9'
-
+version: "3.9"
 services:
-  pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4:5.2
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.ch
-      - PGADMIN_DEFAULT_PASSWORD=secret
+  frontend-schrittzaehler-challenge:
+    container_name: frontend-schrittzaehler-challenge-frontend
+    build: ./../frontend-schrittzaehler-challenge/
     ports:
-      - 5050:80
-    networks:
-      - stepChallenge
-    volumes:
-       - pgadmin-data:/root/.pgadmin
-    depends_on:
-      - postgres
+      - 9000:80
 
-  postgres:
-    container_name: postgres
+  backend-schrittzaehler-challenge:
+    container_name: backend-schrittzaehler-challenge
+    build: ./../backend-schrittzaehler-challenge/
+    ports:
+      - 8080:8080
+    networks:
+      - schrittzaehler-challenge-network
+
+  schrittzaehler-challenge-postgres:
+    container_name:
+      postgres
     image: postgres
-    environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=secret
-      - POSTGRES_DB=m151
+    restart: always
     ports:
       - 5432:5432
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_PASSWORD=db-postgres
+      - POSTGRES_USER=db-postgres
+      - POSTGRES_DB=postgres
     networks:
-      - stepChallenge
+      - schrittzaehler-challenge-network
     volumes:
-      - postgres-db:/var/lib/postgresql/data
+      - schrittzaehler-challenge-postgres:/var/lib/postgresql/data
 
-  redis:
-    container_name: redis
+
+  schrittzaehler-challenge-pgadmin:
+    container_name:
+      schrittzaehler-challenge-pgadmin
+    image: dpage/pgadmin4:5.1
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=philip_baumann@sluz.ch
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - 4000:80
+    volumes:
+      - schrittzaehler-challenge-pgadmin:/var/lib/pgadmin
+    networks:
+      - schrittzaehler-challenge-network
+
+  schrittzaehler-challenge-redis:
+    container_name: schrittzaehler-challenge-redis
     image: redis:6-alpine
     ports:
       - 6379:6379
     networks:
-      - stepChallenge
+      - schrittzaehler-challenge-network
     volumes:
-      - redis-data:/data
-
-networks:
-  stepChallenge:
-    driver: bridge
+      - schrittzaehler-challenge-redis:/data
 
 volumes:
-  postgres-db:
-  pgadmin-data:
-  redis-data:
+  schrittzaehler-challenge-pgadmin:
+  schrittzaehler-challenge-postgres:
+  schrittzaehler-challenge-redis:
+
+networks:
+  schrittzaehler-challenge-network:
+    driver: bridge
+    name: schrittzaehler-challenge-network
