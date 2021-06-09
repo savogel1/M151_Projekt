@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   frontend-schrittzaehler-challenge:
-    container_name: frontend-schrittzaehler-challenge-frontend
+    container_name: frontend-schrittzaehler-challenge
     build: ./../frontend-schrittzaehler-challenge/
     ports:
       - 9000:80
@@ -9,14 +9,15 @@ services:
   backend-schrittzaehler-challenge:
     container_name: backend-schrittzaehler-challenge
     build: ./../backend-schrittzaehler-challenge/
+    environment:
+      - DATASOURCE=schrittzaehler-challenge-postgres
     ports:
       - 8080:8080
     networks:
       - schrittzaehler-challenge-network
 
   schrittzaehler-challenge-postgres:
-    container_name:
-      postgres
+    container_name: schrittzaehler-challenge-postgres
     image: postgres
     restart: always
     ports:
@@ -25,7 +26,7 @@ services:
       - 5432
     environment:
       - POSTGRES_PASSWORD=admin
-      - POSTGRES_USER=admin
+      - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
     networks:
       - schrittzaehler-challenge-network
