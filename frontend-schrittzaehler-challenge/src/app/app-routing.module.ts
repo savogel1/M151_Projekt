@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EnterStepsComponent } from './enter-steps/enter-steps.component';
 import { HomeComponent } from './home/home.component';
 import { LoginGuard } from './login.guard';
 import { LoginComponent } from './login/login.component';
+import { MyStatisticsComponent } from './my-statistics/my-statistics.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,18 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate:[LoginGuard]
+  }
+  ,
+  {
+    path: 'my-statistics',
+    component: MyStatisticsComponent,
+    canActivate:[LoginGuard]
+  }
+  ,
+  {
+    path: 'enter-steps',
+    component: EnterStepsComponent,
     canActivate:[LoginGuard]
   }
 ];

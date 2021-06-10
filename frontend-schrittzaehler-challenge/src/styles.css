@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/primeicons/primeicons.css';
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
+}
+
+app-root {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#sidemenu {
+    width: 20%;
+    height: 100%;
+    background: #585858;
+}
+
+#content {
+    width: 80%;
+    height: 100%;
+    background: white;
+}
