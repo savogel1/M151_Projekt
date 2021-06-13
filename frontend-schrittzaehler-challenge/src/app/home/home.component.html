@@ -1,1 +1,21 @@
-<p>home works!</p>
+<h1>Übersicht</h1>
+<p-table [value]="groups">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Rang</th>
+            <th>Gruppe</th>
+            <th>Σ Schritte</th>
+            <th>Ø Schritte</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-group>
+        <tr>
+            <td>{{group.rank}}</td>
+            <td>{{group.name}}</td>
+            <td>{{group.totalSteps}}</td>
+            <td>{{group.averageSteps}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+<button type="button" pButton style="margin: 5px; padding: 3px; float: right;">Schritte erfassen</button>
+<button type="button" pButton style="margin: 5px; padding: 3px; float: right;">Meine Statistik</button>

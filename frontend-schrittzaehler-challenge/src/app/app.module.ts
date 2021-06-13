@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginGuard } from './login.guard';
 import { MyStatisticsComponent } from './my-statistics/my-statistics.component';
 import { EnterStepsComponent } from './enter-steps/enter-steps.component';
+import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
 
 
 providers: [LoginGuard];
@@ -28,7 +30,9 @@ providers: [LoginGuard];
     BrowserModule,
     AppRoutingModule,
     MenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ButtonModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
