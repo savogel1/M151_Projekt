@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Group } from 'src/model/Group';
 
 @Component({
@@ -24,7 +25,12 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  navigate(url: string) {
+    console.log('Das ist die URL' + url);
+    this.router.navigateByUrl(`/${url}`);
+  }
 }

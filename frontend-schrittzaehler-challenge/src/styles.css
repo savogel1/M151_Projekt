@@ -4,6 +4,7 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
+    font-size: 12pt;
 }
 
 body {
@@ -21,10 +22,9 @@ app-root {
     height: 100%;
 }
 
-#sidemenu {
-    width: 20%;
-    height: 100%;
-    background: #585858;
+.bHome {
+    padding: 3px;
+    float: right;
 }
 
 #content {
