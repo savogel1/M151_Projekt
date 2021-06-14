@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   navigate(url: string) {
-    console.log('Das ist die URL' + url);
     this.router.navigateByUrl(`/${url}`);
   }
 }

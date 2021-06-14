@@ -13,6 +13,7 @@ import { MyStatisticsComponent } from './my-statistics/my-statistics.component';
 import { EnterStepsComponent } from './enter-steps/enter-steps.component';
 import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
+import {ChartModule} from 'primeng/chart';
 
 
 providers: [LoginGuard];
@@ -32,7 +33,8 @@ providers: [LoginGuard];
     MenuModule,
     BrowserAnimationsModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
