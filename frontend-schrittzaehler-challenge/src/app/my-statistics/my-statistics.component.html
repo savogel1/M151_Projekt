@@ -1,1 +1,17 @@
-<p>my-statistics works!</p>
+<h1>Meine Statistik</h1>
+<div class="card">
+    <p-chart type="bar" [data]="stepData" [options]="options"></p-chart>
+</div>
+<div class="p-grid">
+    <div class="p-col-3">Gruppe:</div>
+    <div class="p-col-3">testGruppe 1</div>
+    <div class="p-col-6"></div>
+    <div class="p-col-3">Gesamt:</div>
+    <div class="p-col-3">50000</div>
+    <div class="p-col-6"></div>
+    <div class="p-col-3">Ø pro Tag:</div>
+    <div class="p-col-3">5000</div>
+    <div class="p-col-6"></div>
+</div>
+<button id="bEnterSteps" type="button" pButton class="bHome" style="margin: 5px;" (click)="navigate('enter-steps')">Schritte erfassen</button>
+<button type="button" pButton class="bHome" style="margin: 5px;" (click)="navigate('home')">Home</button>

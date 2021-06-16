@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit {
   }
 
   navigate(url: string) {
-    console.log('Das ist die URL' + url);
     this.router.navigateByUrl(`/${url}`);
   }
 

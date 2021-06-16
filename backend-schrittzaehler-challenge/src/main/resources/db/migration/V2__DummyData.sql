@@ -1,4 +1,4 @@
-INSERT INTO competition(start_date, end_date, state) VALUES ('2021-06-07', '2021-07-07', 'running');
+INSERT INTO competition(name, start_date, end_date, state) VALUES ('competition 1', '2021-06-07', '2021-07-07', 'running');
 
 INSERT INTO groups(competition_id, groupname) VALUES (1, 'testgroup1'), (1, 'testgroup2');
 

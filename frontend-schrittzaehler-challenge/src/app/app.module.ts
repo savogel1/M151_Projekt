@@ -13,8 +13,8 @@ import { MyStatisticsComponent } from './my-statistics/my-statistics.component';
 import { EnterStepsComponent } from './enter-steps/enter-steps.component';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { ChartModule } from 'primeng/chart';
 import { HttpClientModule } from "@angular/common/http";
-
 
 providers: [LoginGuard];
 
@@ -34,7 +34,8 @@ providers: [LoginGuard];
     BrowserAnimationsModule,
     ButtonModule,
     TableModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
