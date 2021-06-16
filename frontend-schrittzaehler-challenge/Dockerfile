@@ -10,7 +10,7 @@
 FROM node:alpine AS build
 WORKDIR /app
 COPY . .
-RUN npm ci && npm run build
+RUN npm i && npm run build
 
 # Run
 FROM nginx:alpine

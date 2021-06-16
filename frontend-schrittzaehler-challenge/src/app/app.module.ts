@@ -11,8 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginGuard } from './login.guard';
 import { MyStatisticsComponent } from './my-statistics/my-statistics.component';
 import { EnterStepsComponent } from './enter-steps/enter-steps.component';
-import {ButtonModule} from 'primeng/button';
-import {TableModule} from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { HttpClientModule } from "@angular/common/http";
 
 
 providers: [LoginGuard];
@@ -32,9 +33,10 @@ providers: [LoginGuard];
     MenuModule,
     BrowserAnimationsModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

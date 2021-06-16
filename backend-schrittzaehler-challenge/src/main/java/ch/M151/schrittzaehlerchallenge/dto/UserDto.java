@@ -6,15 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
-public class UserDto {
-    private long id;
-    private String username;
-    private String email;
-    private int dailyStepGoal;
-    private UserRoleEnum userRole;
-
-    public UserDto() {}
+public class UserDto implements Serializable {
+    private final long id;
+    private final String username;
+    private final String email;
+    private final int dailyStepGoal;
+    private final UserRoleEnum userRole;
 
     public UserDto(
             long id,
@@ -28,5 +27,25 @@ public class UserDto {
         this.email = email;
         this.dailyStepGoal = dailyStepGoal;
         this.userRole = userRole;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getDailyStepGoal() {
+        return dailyStepGoal;
+    }
+
+    public UserRoleEnum getUserRole() {
+        return userRole;
     }
 }

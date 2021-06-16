@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Group } from 'src/model/Group';
+import { User } from 'src/model/User';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -25,12 +27,20 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) {}
+  users: User[] = [];
 
-  ngOnInit(): void {}
+  constructor(private userService: UserService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.loadUsers();
+  }
 
   navigate(url: string) {
     console.log('Das ist die URL' + url);
     this.router.navigateByUrl(`/${url}`);
+  }
+
+  async loadUsers(): Promise<void> {
+    this.users = await this.userService.getAllUsers();
   }
 }
