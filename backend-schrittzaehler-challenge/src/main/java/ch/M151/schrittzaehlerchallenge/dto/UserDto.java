@@ -1,6 +1,7 @@
 package ch.M151.schrittzaehlerchallenge.dto;
 
 import ch.M151.schrittzaehlerchallenge.enums.UserRoleEnum;
+import lombok.Getter;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+@Getter
 public class UserDto implements Serializable {
     private final long id;
     private final String username;
@@ -29,23 +31,4 @@ public class UserDto implements Serializable {
         this.userRole = userRole;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public int getDailyStepGoal() {
-        return dailyStepGoal;
-    }
-
-    public UserRoleEnum getUserRole() {
-        return userRole;
-    }
 }
