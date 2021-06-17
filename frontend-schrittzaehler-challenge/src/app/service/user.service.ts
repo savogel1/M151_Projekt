@@ -12,7 +12,7 @@ export class UserService {
   async getAllUsers(): Promise<User[]> {
     try {
       return this.http.get<User[]>('http://localhost:8080/user/').toPromise();
-    } catch (error) {
+    } catch (e) {
       return Promise.reject();
     }
   }

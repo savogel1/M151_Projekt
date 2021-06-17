@@ -26,7 +26,4 @@ public class StepController {
             return ResponseEntity.status(405).body(e.getMessage());
         }
     }
-
-    @GetMapping("/")
-    public List<StepDto> getAll() { return stepService.getAll(); }
 }

@@ -25,19 +25,6 @@ public class StepService {
         return mapToMultipleDtos(entities);
     }
 
-    public List<StepDto> getAll() {
-        final List<StepEntity> entities = stepRepo.findAll();
-        return mapToMultipleDtos(entities);
-    }
-
-    private StepDto mapToDto(StepEntity entity) {
-        return StepDto.builder()
-                .id(entity.getId())
-                .numberOfSteps(entity.getNumberOfSteps())
-                .creationDate(entity.getCreationDate())
-                .build();
-    }
-
     private List<StepDto> mapToMultipleDtos(List<StepEntity> entities) {
         List<StepDto> steps = new ArrayList();
         for (StepEntity entity : entities) {

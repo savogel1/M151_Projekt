@@ -9,7 +9,7 @@ import { StepService } from '../service/step.service';
   styleUrls: ['./my-statistics.component.css'],
 })
 export class MyStatisticsComponent implements OnInit {
-  stepData: any;
+  stepChart: any;
   options: any;
   steps: Step[] = [];
 
@@ -24,7 +24,7 @@ export class MyStatisticsComponent implements OnInit {
       creationDates.push(step.creationDate);
     });
 
-    this.stepData = {
+    this.stepChart = {
       labels: creationDates,
       datasets: [
         {

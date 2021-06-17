@@ -25,30 +25,6 @@ public class UserService {
         return mapToMultipleDtos(entities);
     }
 
-    public UserDto getById(long id) {
-        UserEntity entity = userRepo.findById(id);
-        return mapToDto(entity);
-    }
-
-    public void delete(long id) {
-        userRepo.deleteById(id);
-    }
-
-    public void deleteAll() {
-        userRepo.deleteAll();
-    }
-
-    private UserDto mapToDto(UserEntity entity) {
-        return new UserDto(
-                entity.getId(),
-                entity.getUsername(),
-                entity.getEmail(),
-                entity.getDailyStepGoal(),
-                UserRoleEnum.valueOf(entity.getUserRole()),
-                new ArrayList<>()
-        );
-    }
-
     private List<UserDto> mapToMultipleDtos(List<UserEntity> entities) {
         List<UserDto> users = new ArrayList();
         for (UserEntity entity : entities) {

@@ -13,5 +13,4 @@ public interface StepRepo extends CrudRepository<StepEntity, Long> {
 
     List<StepEntity> findByUsersId(Optional<Long> usersId);
 
-    List<StepEntity> findAll();
 }
