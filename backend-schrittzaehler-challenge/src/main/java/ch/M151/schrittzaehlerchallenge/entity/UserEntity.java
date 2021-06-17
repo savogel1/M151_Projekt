@@ -3,6 +3,8 @@ package ch.M151.schrittzaehlerchallenge.entity;
 import ch.M151.schrittzaehlerchallenge.enums.UserRoleEnum;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -27,6 +29,9 @@ public class UserEntity {
 
     @Column(name = "user_role", nullable = false)
     private String userRole;
+
+    @OneToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<StepEntity> stepEntities = new ArrayList<>();
 
     public long getId() {
         return id;

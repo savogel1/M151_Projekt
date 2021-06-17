@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private UserRepo userRepo;
+    private final UserRepo userRepo;
 
     @Autowired
     public UserService(final UserRepo userRepo) {
@@ -39,14 +39,14 @@ public class UserService {
     }
 
     private UserDto mapToDto(UserEntity entity) {
-        UserDto user = new UserDto(
+        return new UserDto(
                 entity.getId(),
                 entity.getUsername(),
                 entity.getEmail(),
                 entity.getDailyStepGoal(),
-                UserRoleEnum.valueOf(entity.getUserRole())
+                UserRoleEnum.valueOf(entity.getUserRole()),
+                new ArrayList<>()
         );
-        return user;
     }
 
     private List<UserDto> mapToMultipleDtos(List<UserEntity> entities) {
@@ -57,7 +57,8 @@ public class UserService {
                     entity.getUsername(),
                     entity.getEmail(),
                     entity.getDailyStepGoal(),
-                    UserRoleEnum.valueOf(entity.getUserRole())
+                    UserRoleEnum.valueOf(entity.getUserRole()),
+                    new ArrayList<>()
             );
             users.add(user);
         }

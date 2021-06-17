@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Step } from 'src/model/Step';
+import { StepService } from '../service/step.service';
 
 @Component({
   selector: 'app-my-statistics',
@@ -9,24 +11,26 @@ import { Router } from '@angular/router';
 export class MyStatisticsComponent implements OnInit {
   stepData: any;
   options: any;
+  steps: Step[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private stepService: StepService, private router: Router) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.steps = await this.stepService.getStepsByUser(1);
+    let numberOfSteps: number[] = [];
+    let creationDates: string[] = [];
+    this.steps.forEach(step => {
+      numberOfSteps.push(step.numberOfSteps);
+      creationDates.push(step.creationDate);
+    });
+
     this.stepData = {
-      labels: [
-        '10.06.2021',
-        '11.06.2021',
-        '12.06.2021',
-        '13.06.2021',
-        '14.06.2021',
-        '15.06.2021',
-      ],
+      labels: creationDates,
       datasets: [
         {
           label: 'Meine Schritte',
           backgroundColor: '#42A5F5',
-          data: [5900, 8056, 8461, 5687, 5565, 0],
+          data: numberOfSteps,
         },
       ],
     };
@@ -40,6 +44,11 @@ export class MyStatisticsComponent implements OnInit {
         position: 'bottom',
       },
     };
+  }
+
+  async loadStepsByUser(): Promise<Step[]> {
+    
+    return this.steps;
   }
 
   navigate(url: string) {
