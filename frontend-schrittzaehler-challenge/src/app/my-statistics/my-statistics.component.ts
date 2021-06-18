@@ -10,31 +10,48 @@ import { StepService } from '../service/step.service';
 })
 export class MyStatisticsComponent implements OnInit {
   stepChart: any;
-  options: any;
+  stepChartOptions: any;
   steps: Step[] = [];
+  concatenatedSteps: {creationDate: string, numberOfSteps: number}[] = []; 
 
   constructor(private stepService: StepService, private router: Router) {}
 
   async ngOnInit(): Promise<void> {
     this.steps = await this.stepService.getStepsByUser(1);
-    let numberOfSteps: number[] = [];
-    let creationDates: string[] = [];
-    this.steps.forEach(step => {
-      numberOfSteps.push(step.numberOfSteps);
-      creationDates.push(step.creationDate);
+
+    this.steps.forEach((step) => {
+      if (this.isDateExisting(step)) {
+        this.concatenatedSteps.forEach(concatenatedStep => {
+          if (step.creationDate === concatenatedStep.creationDate) {
+            concatenatedStep.numberOfSteps += step.numberOfSteps;
+          }
+        });
+      } else {
+        this.concatenatedSteps.push({creationDate: step.creationDate, numberOfSteps: step.numberOfSteps});
+      }
     });
 
     this.stepChart = {
-      labels: creationDates,
+      labels: this.concatenatedSteps.map(step => step.creationDate),
       datasets: [
         {
           label: 'Meine Schritte',
           backgroundColor: '#42A5F5',
-          data: numberOfSteps,
+          data: this.concatenatedSteps.map(step => step.numberOfSteps),
         },
       ],
     };
-    this.options = {
+    this.stepChartOptions = {
+      responsive: true,
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
       title: {
         display: true,
         text: 'Meine Schritte',
@@ -45,9 +62,11 @@ export class MyStatisticsComponent implements OnInit {
       },
     };
   }
+  isDateExisting(step: Step): boolean {
+    return (this.concatenatedSteps.filter(concatenatedStep => concatenatedStep.creationDate === step.creationDate).length > 0);
+  }
 
   async loadStepsByUser(): Promise<Step[]> {
-    
     return this.steps;
   }
 
