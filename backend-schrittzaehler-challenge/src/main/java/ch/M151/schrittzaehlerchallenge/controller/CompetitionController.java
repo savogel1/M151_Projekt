@@ -4,6 +4,7 @@ import ch.M151.schrittzaehlerchallenge.dto.CompetitionDto;
 import ch.M151.schrittzaehlerchallenge.service.CompetitionService;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 public class CompetitionController {
 
