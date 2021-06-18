@@ -14,6 +14,7 @@ import { EnterStepsComponent } from './enter-steps/enter-steps.component';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
+import { TabMenuModule } from 'primeng/tabmenu';
 import { HttpClientModule } from "@angular/common/http";
 
 providers: [LoginGuard];
@@ -35,7 +36,8 @@ providers: [LoginGuard];
     ButtonModule,
     TableModule,
     HttpClientModule,
-    ChartModule
+    ChartModule,
+    TabMenuModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

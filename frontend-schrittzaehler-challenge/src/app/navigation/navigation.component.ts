@@ -16,29 +16,29 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.items = [{
-      label: 'Menu',
-      items: [{
-          label: 'Home',
-          icon: 'pi pi-home',
-          command: () => {
-              this.navigate('home');
-          }
+    this.items = [
+      {
+        label: 'Home', 
+        icon: 'pi pi-fw pi-home',
+        command: () => {
+          this.navigate('home');
+        }
       },
       {
-          label: 'My Statistics',
-          icon: 'pi pi-chart-bar',
-          command: () => {
-              this.navigate('my-statistics');
-          }
-      },{
-          label: 'Enter Steps',
-          icon: 'pi pi-user-plus',
-          command: () => {
-              this.navigate('enter-steps');
-          }
-      }]
-    }];
+        label: 'My Statistics',
+        icon: 'pi pi-chart-bar',
+        command: () => {
+          this.navigate('my-statistics');
+        }
+      },
+      {
+        label: 'Enter Steps',
+        icon: 'pi pi-user-plus',
+        command: () => {
+          this.navigate('enter-steps');
+        }
+      }
+    ];
   }
 
 

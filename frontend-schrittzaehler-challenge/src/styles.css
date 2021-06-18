@@ -10,14 +10,13 @@ html {
 body {
     padding: 2em;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
 }
 
 app-root {
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
 }
@@ -28,7 +27,12 @@ app-root {
 }
 
 #content {
-    width: 80%;
+    width: 100%;
     height: 100%;
+    background: white;
+}
+
+#navigation {
+    padding-bottom: 3%;
     background: white;
 }
