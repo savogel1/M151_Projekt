@@ -1,5 +1,6 @@
 package ch.M151.schrittzaehlerchallenge.controller;
 
+import ch.M151.schrittzaehlerchallenge.dto.StepDto;
 import ch.M151.schrittzaehlerchallenge.service.StepService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
