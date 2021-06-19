@@ -19,11 +19,6 @@ public class StepRepoCustomImpl implements StepRepoCustom {
     @Override
     @Transactional
     public void insertStep(StepEntity stepEntity) {
-        //StepEntity stepEntity = new StepEntity();
-        //stepEntity.setUsers().setId(usersId);
-        //stepEntity.setNumberOfSteps(numberOfSteps);
-        //java.sql.Date creationDateSQL = new java.sql.Date(creationDate.getTime());
-        //stepEntity.setCreationDate(creationDateSQL);
         entityManager.merge(stepEntity);
     }
 }

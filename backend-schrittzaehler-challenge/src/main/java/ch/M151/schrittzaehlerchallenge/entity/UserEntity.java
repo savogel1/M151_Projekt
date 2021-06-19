@@ -36,5 +36,8 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<StepEntity> stepEntities = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private GroupEntity group;
 }
 
