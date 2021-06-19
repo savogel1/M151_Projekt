@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Step } from 'src/model/Step';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { Step } from 'src/model/Step';
 })
 export class EnterStepsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   async createStepForCurrentUser(numberOfSteps: number, date: string): Promise<void> {
     var step: Step = {
@@ -20,6 +21,7 @@ export class EnterStepsService {
     try {
       await this.http.post(`http://localhost:8080/step/add`, step).toPromise();
       alert(`Successfully added steps to user with id: ${step.userId}`)
+      this.router.navigateByUrl('/home');
     } catch (e) {
       Promise.reject();
     }
