@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Table(name = "user", schema = "public")
 public class UserEntity {
 
     @Id
@@ -34,7 +34,7 @@ public class UserEntity {
     @Column(name = "user_role", nullable = false)
     private String userRole;
 
-    @OneToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<StepEntity> stepEntities = new ArrayList<>();
 }
 

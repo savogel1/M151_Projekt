@@ -9,7 +9,7 @@ import java.sql.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "steps")
+@Table(name = "step")
 public class StepEntity {
 
     @Id
@@ -24,5 +24,5 @@ public class StepEntity {
     private Date creationDate;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private UserEntity users;
+    private UserEntity user;
 }

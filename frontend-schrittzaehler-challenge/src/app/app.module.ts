@@ -16,6 +16,8 @@ import { TableModule } from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { HttpClientModule } from "@angular/common/http";
+import { CalendarModule } from 'primeng/calendar';
+import { FormsModule } from '@angular/forms';
 
 providers: [LoginGuard];
 
@@ -37,7 +39,9 @@ providers: [LoginGuard];
     TableModule,
     HttpClientModule,
     ChartModule,
-    TabMenuModule
+    TabMenuModule,
+    CalendarModule,
+    FormsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
