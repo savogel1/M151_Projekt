@@ -4,6 +4,8 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
@@ -27,4 +29,6 @@ public class CompetitionEntity {
     @Column(name = "state", nullable = false)
     private String state;
 
+    @OneToMany(mappedBy = "competition", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<GroupEntity> groupEntities = new ArrayList<>();
 }

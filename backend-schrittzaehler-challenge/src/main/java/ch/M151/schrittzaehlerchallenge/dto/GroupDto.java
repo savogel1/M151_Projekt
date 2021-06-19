@@ -5,17 +5,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @Builder
-public class StepDto {
+public class GroupDto {
     private long id;
-    private long userId;
-    private int numberOfSteps;
-    private Date creationDate;
+    private String groupname;
+    private int totalSteps;
+    private int averageSteps;
 }

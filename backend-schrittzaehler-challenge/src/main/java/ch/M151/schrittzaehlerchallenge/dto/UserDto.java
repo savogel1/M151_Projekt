@@ -14,10 +14,10 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class UserDto implements Serializable {
-    private final long id;
-    private final String username;
-    private final String email;
-    private final int dailyStepGoal;
-    private final UserRoleEnum userRole;
-    private final List<StepDto> steps;
+    private long id;
+    private String username;
+    private String email;
+    private int dailyStepGoal;
+    private UserRoleEnum userRole;
+    private List<StepDto> steps;
 }

@@ -11,7 +11,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+
+@Table(name = "user", schema = "public")
 @NamedQuery(name = "UserEntity.checkPassword", query = "SELECT u FROM UserEntity u WHERE u.username = :username and u.password = :password")
 public class UserEntity {
 
@@ -35,7 +36,10 @@ public class UserEntity {
     @Column(name = "user_role", nullable = false)
     private String userRole;
 
-    @OneToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<StepEntity> stepEntities = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private GroupEntity group;
 }
 

@@ -2,7 +2,6 @@
 <p-table [value]="groups">
     <ng-template pTemplate="header">
         <tr>
-            <th>Rang</th>
             <th>Gruppe</th>
             <th>Σ Schritte</th>
             <th>Ø Schritte</th>
@@ -10,8 +9,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-group>
         <tr>
-            <td>{{group.rank}}</td>
-            <td>{{group.name}}</td>
+            <td>{{group.groupname}}</td>
             <td>{{group.totalSteps}}</td>
             <td>{{group.averageSteps}}</td>
         </tr>

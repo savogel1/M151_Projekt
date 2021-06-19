@@ -15,4 +15,9 @@ public interface UserRepo extends CrudRepository<UserEntity, Long> {
     UserEntity findByUsername(Optional<String> username);
     
     UserEntity checkPassword(String username, String password);
+
+    UserEntity findById(long id);
+
+    List<UserEntity> findByGroupId(long id);
+
 }

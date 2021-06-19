@@ -18,6 +18,7 @@ import { ChartModule } from 'primeng/chart';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { HttpClientModule } from "@angular/common/http";
 import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
 
 providers: [LoginGuard];
 
@@ -41,6 +42,7 @@ providers: [LoginGuard];
     ChartModule,
     TabMenuModule,
     InputTextModule,
+    CalendarModule,
     FormsModule
   ],
   providers: [HttpClientModule],

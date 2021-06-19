@@ -4,6 +4,7 @@ import ch.M151.schrittzaehlerchallenge.dto.LoginRequest;
 import ch.M151.schrittzaehlerchallenge.dto.UserDto;
 import ch.M151.schrittzaehlerchallenge.entity.UserEntity;
 import ch.M151.schrittzaehlerchallenge.enums.UserRoleEnum;
+import ch.M151.schrittzaehlerchallenge.mapper.UserMapper;
 import ch.M151.schrittzaehlerchallenge.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,23 +25,7 @@ public class UserService {
 
     public List<UserDto> getAll() {
         final List<UserEntity> entities = userRepo.findAll();
-        return mapToMultipleDtos(entities);
-    }
-
-    private List<UserDto> mapToMultipleDtos(List<UserEntity> entities) {
-        List<UserDto> users = new ArrayList();
-        for (UserEntity entity : entities) {
-            UserDto user = new UserDto(
-                    entity.getId(),
-                    entity.getUsername(),
-                    entity.getEmail(),
-                    entity.getDailyStepGoal(),
-                    UserRoleEnum.valueOf(entity.getUserRole()),
-                    new ArrayList<>()
-            );
-            users.add(user);
-        }
-        return users;
+        return UserMapper.mapToMultipleDtos(entities);
     }
 
     public UserDto getUser(Optional<String> username) {

@@ -1,7 +1,6 @@
 export interface Group {
     id: number,
-    rank: number,
-    name: string,
+    groupname: string,
     totalSteps: number,
     averageSteps: number
 }

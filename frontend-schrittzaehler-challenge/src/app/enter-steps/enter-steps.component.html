@@ -1,1 +1,12 @@
-<p>enter-steps works!</p>
+<div id="enter-steps-content">
+  <div class="p-col-12 p-md-12">
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon"><i class="pi pi-user-plus"></i></span>
+      <input class="input-field" [(ngModel)]="numberOfSteps" type="number" pInputText placeholder="Steps">
+    </div>
+  </div>
+  <div class="p-field p-col-12 p-md-12">
+    <p-calendar class="input-field" [(ngModel)]="date" [showIcon]="true"></p-calendar>
+  </div>
+  <button pButton pRipple type="button" label="Save" class="p-button-warning" (click)="save()"></button>
+</div>
