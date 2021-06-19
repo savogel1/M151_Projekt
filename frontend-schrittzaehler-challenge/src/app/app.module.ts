@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MenuModule } from 'primeng/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { TableModule } from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { HttpClientModule } from "@angular/common/http";
+import { InputTextModule } from 'primeng/inputtext';
 
 providers: [LoginGuard];
 
@@ -26,7 +28,7 @@ providers: [LoginGuard];
     NavigationComponent,
     HomeComponent,
     MyStatisticsComponent,
-    EnterStepsComponent
+    EnterStepsComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,9 @@ providers: [LoginGuard];
     TableModule,
     HttpClientModule,
     ChartModule,
-    TabMenuModule
+    TabMenuModule,
+    InputTextModule,
+    FormsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

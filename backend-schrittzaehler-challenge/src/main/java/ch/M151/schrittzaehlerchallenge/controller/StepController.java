@@ -1,11 +1,9 @@
 package ch.M151.schrittzaehlerchallenge.controller;
 
-import ch.M151.schrittzaehlerchallenge.dto.StepDto;
 import ch.M151.schrittzaehlerchallenge.service.StepService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin
