@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdministrationComponent } from './administration/administration.component';
+import { AddGroupComponent } from './add-group/add-group.component';
 import { EnterStepsComponent } from './enter-steps/enter-steps.component';
 import { HomeComponent } from './home/home.component';
 import { LoginGuard } from './login.guard';
@@ -44,12 +44,12 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'administration',
-    component: AdministrationComponent,
+    path: 'add-group',
+    component: AddGroupComponent,
     canActivate:[RoleGuard], 
     data: { 
       expectedRole: 'admin'
-    } 
+    }
   }
 ];
 

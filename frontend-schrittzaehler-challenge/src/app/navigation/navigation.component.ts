@@ -39,10 +39,10 @@ export class NavigationComponent implements OnInit {
         }
       },
       {
-        label: 'Administration',
-        icon: 'pi pi-paperclip',
+        label: 'Add Group',
+        icon: 'pi pi-users',
         command: () => {
-          this.navigate('administration');
+          this.navigate('add-group');
         }
       },
       {

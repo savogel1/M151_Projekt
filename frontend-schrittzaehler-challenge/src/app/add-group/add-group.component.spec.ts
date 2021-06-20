@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdministrationComponent } from './administration.component';
+import { AddGroupComponent } from './add-group.component';
 
-describe('AdministrationComponent', () => {
-  let component: AdministrationComponent;
-  let fixture: ComponentFixture<AdministrationComponent>;
+describe('AddGroupComponent', () => {
+  let component: AddGroupComponent;
+  let fixture: ComponentFixture<AddGroupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdministrationComponent ]
+      declarations: [ AddGroupComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdministrationComponent);
+    fixture = TestBed.createComponent(AddGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
