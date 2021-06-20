@@ -39,6 +39,13 @@ export class NavigationComponent implements OnInit {
         }
       },
       {
+        label: 'Administration',
+        icon: 'pi pi-paperclip',
+        command: () => {
+          this.navigate('administration');
+        }
+      },
+      {
         label: 'Log out',
         icon: 'pi pi-sign-out',
         command: () => {

@@ -20,6 +20,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { LogoutComponent } from './logout/logout.component';
+import { AdministrationComponent } from './administration/administration.component';
 
 providers: [LoginGuard];
 
@@ -32,6 +33,7 @@ providers: [LoginGuard];
     MyStatisticsComponent,
     EnterStepsComponent,
     LogoutComponent,
+    AdministrationComponent,
   ],
   imports: [
     BrowserModule,
