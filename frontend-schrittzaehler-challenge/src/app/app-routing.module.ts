@@ -4,6 +4,7 @@ import { EnterStepsComponent } from './enter-steps/enter-steps.component';
 import { HomeComponent } from './home/home.component';
 import { LoginGuard } from './login.guard';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { MyStatisticsComponent } from './my-statistics/my-statistics.component';
 
 const routes: Routes = [
@@ -32,6 +33,12 @@ const routes: Routes = [
     path: 'enter-steps',
     component: EnterStepsComponent,
     canActivate:[LoginGuard]
+  }
+  ,
+  {
+    path: 'logout',
+    component: LogoutComponent,
+    canActivate:[LoginGuard],
   }
 ];
 

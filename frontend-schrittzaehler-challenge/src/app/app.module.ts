@@ -19,6 +19,7 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { HttpClientModule } from "@angular/common/http";
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
+import { LogoutComponent } from './logout/logout.component';
 
 providers: [LoginGuard];
 
@@ -30,6 +31,7 @@ providers: [LoginGuard];
     HomeComponent,
     MyStatisticsComponent,
     EnterStepsComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
