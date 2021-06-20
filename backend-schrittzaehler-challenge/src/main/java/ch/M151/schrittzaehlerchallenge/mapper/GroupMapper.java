@@ -3,7 +3,7 @@ package ch.M151.schrittzaehlerchallenge.mapper;
 import ch.M151.schrittzaehlerchallenge.calculator.GroupCalculator;
 import ch.M151.schrittzaehlerchallenge.dto.GroupDto;
 import ch.M151.schrittzaehlerchallenge.entity.GroupEntity;
-import ch.M151.schrittzaehlerchallenge.repo.GroupRepo;
+import ch.M151.schrittzaehlerchallenge.repo.CompetitionRepo;
 import ch.M151.schrittzaehlerchallenge.repo.StepRepo;
 import ch.M151.schrittzaehlerchallenge.repo.UserRepo;
 
@@ -25,5 +25,13 @@ public class GroupMapper {
             );
         }
         return groups;
+    }
+
+    public static GroupEntity mapToEntity(GroupDto groupDto, CompetitionRepo competitionRepo) {
+        GroupEntity groupEntity = new GroupEntity();
+        groupEntity.setGroupname(groupDto.getGroupname());
+        groupEntity.setCompetition(competitionRepo.findById(groupDto.getCompetitionId()));
+        groupEntity.setUserEntities(new ArrayList<>());
+        return groupEntity;
     }
 }

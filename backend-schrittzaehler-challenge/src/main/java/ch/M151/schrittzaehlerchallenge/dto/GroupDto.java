@@ -11,6 +11,7 @@ import lombok.Setter;
 @Builder
 public class GroupDto {
     private long id;
+    private long competitionId;
     private String groupname;
     private int totalSteps;
     private int averageSteps;

@@ -37,6 +37,13 @@ export class NavigationComponent implements OnInit {
         command: () => {
           this.navigate('enter-steps');
         }
+      },
+      {
+        label: 'Add Group',
+        icon: 'pi pi-users',
+        command: () => {
+          this.navigate('add-group');
+        }
       }
     ];
   }

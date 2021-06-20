@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddGroupComponent } from './add-group/add-group.component';
 import { EnterStepsComponent } from './enter-steps/enter-steps.component';
 import { HomeComponent } from './home/home.component';
 import { LoginGuard } from './login.guard';
@@ -31,6 +32,12 @@ const routes: Routes = [
   {
     path: 'enter-steps',
     component: EnterStepsComponent,
+    canActivate:[LoginGuard]
+  }
+  ,
+  {
+    path: 'add-group',
+    component: AddGroupComponent,
     canActivate:[LoginGuard]
   }
 ];

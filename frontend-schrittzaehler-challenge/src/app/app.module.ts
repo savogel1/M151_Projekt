@@ -18,6 +18,7 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { HttpClientModule } from "@angular/common/http";
 import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
+import { AddGroupComponent } from './add-group/add-group.component';
 
 providers: [LoginGuard];
 
@@ -28,7 +29,8 @@ providers: [LoginGuard];
     NavigationComponent,
     HomeComponent,
     MyStatisticsComponent,
-    EnterStepsComponent
+    EnterStepsComponent,
+    AddGroupComponent
   ],
   imports: [
     BrowserModule,
