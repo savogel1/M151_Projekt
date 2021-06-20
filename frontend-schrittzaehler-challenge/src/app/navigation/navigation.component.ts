@@ -44,6 +44,13 @@ export class NavigationComponent implements OnInit {
         command: () => {
           this.navigate('add-group');
         }
+      },
+      {
+        label: 'Log out',
+        icon: 'pi pi-sign-out',
+        command: () => {
+          this.navigate('logout');
+        }
       }
     ];
   }

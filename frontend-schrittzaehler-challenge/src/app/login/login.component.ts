@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MyserviceService } from '../service/myservice.service';
+import { first } from 'rxjs/operators';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,19 +9,24 @@ import { MyserviceService } from '../service/myservice.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  msg: any;
+  username: string = '';
+  password: string = '';
 
-  constructor(private service : MyserviceService , private routes: Router) { }
+  constructor(private service : AuthService, private routes: Router) { }
   
   ngOnInit() { }
-
-  check(username: string, password: string)
-  {
-    var output = this.service.checkusernameandpassword(username, password);
-    if(output == true) {
-      this.routes.navigate(['/home']);
-    } else {
-      this.msg ='Invalid username or password';
-    }
+  
+  login() {
+    this.service.login(this.username, this.password)
+      .pipe(first()).subscribe({
+      next: () => {
+        console.log('successful login')
+        this.routes.navigate(['/home']);
+      },
+      error: error => {
+        alert('Username and/or Password are not correct')
+        console.log('Error ' + error);
+      }
+    })
   }
 }

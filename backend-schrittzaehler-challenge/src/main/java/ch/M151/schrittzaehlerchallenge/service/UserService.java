@@ -1,5 +1,6 @@
 package ch.M151.schrittzaehlerchallenge.service;
 
+import ch.M151.schrittzaehlerchallenge.dto.LoginRequest;
 import ch.M151.schrittzaehlerchallenge.dto.UserDto;
 import ch.M151.schrittzaehlerchallenge.entity.UserEntity;
 import ch.M151.schrittzaehlerchallenge.enums.UserRoleEnum;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -24,5 +26,26 @@ public class UserService {
     public List<UserDto> getAll() {
         final List<UserEntity> entities = userRepo.findAll();
         return UserMapper.mapToMultipleDtos(entities);
+    }
+
+    public UserDto getUser(Optional<String> username) {
+        final UserEntity entity = userRepo.findByUsername(username);
+        return mapToDto(entity);
+    }
+
+    private UserDto mapToDto(UserEntity entity) {
+        return new UserDto(
+                entity.getId(),
+                entity.getUsername(),
+                entity.getEmail(),
+                entity.getDailyStepGoal(),
+                UserRoleEnum.valueOf(entity.getUserRole()),
+                new ArrayList<>()
+        );
+    }
+
+    public UserDto login(LoginRequest loginRequest) {
+        UserEntity entity = userRepo.checkPassword(loginRequest.getUsername(), loginRequest.getPassword());
+        return mapToDto(entity);
     }
 }

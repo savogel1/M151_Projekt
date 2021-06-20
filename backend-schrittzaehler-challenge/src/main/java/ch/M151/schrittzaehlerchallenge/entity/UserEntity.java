@@ -11,7 +11,9 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+
 @Table(name = "user", schema = "public")
+@NamedQuery(name = "UserEntity.checkPassword", query = "SELECT u FROM UserEntity u WHERE u.username = :username and u.password = :password")
 public class UserEntity {
 
     @Id

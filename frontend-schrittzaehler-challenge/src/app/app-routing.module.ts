@@ -5,7 +5,9 @@ import { EnterStepsComponent } from './enter-steps/enter-steps.component';
 import { HomeComponent } from './home/home.component';
 import { LoginGuard } from './login.guard';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { MyStatisticsComponent } from './my-statistics/my-statistics.component';
+import { RoleGuard } from './role.guard';
 
 const routes: Routes = [
   {
@@ -36,9 +38,18 @@ const routes: Routes = [
   }
   ,
   {
+    path: 'logout',
+    component: LogoutComponent,
+    canActivate:[LoginGuard],
+  }
+  ,
+  {
     path: 'add-group',
     component: AddGroupComponent,
-    canActivate:[LoginGuard]
+    canActivate:[RoleGuard], 
+    data: { 
+      expectedRole: 'admin'
+    }
   }
 ];
 
