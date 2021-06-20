@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Step } from 'src/model/Step';
+import { User } from 'src/model/User';
+import { AuthService } from '../service/auth.service';
 import { StepService } from '../service/step.service';
 
 @Component({
@@ -14,10 +16,10 @@ export class MyStatisticsComponent implements OnInit {
   steps: Step[] = [];
   concatenatedSteps: {creationDate: string, numberOfSteps: number}[] = []; 
 
-  constructor(private stepService: StepService, private router: Router) {}
+  constructor(private stepService: StepService, private router: Router, private authService: AuthService) {}
 
   async ngOnInit(): Promise<void> {
-    this.steps = await this.stepService.getStepsByUser(1);
+    this.steps = await this.stepService.getStepsByUser(this.authService.currentUserValue.id);
 
     this.steps.forEach((step) => {
       if (this.isDateExisting(step)) {
